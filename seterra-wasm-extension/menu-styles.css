@@ -124,7 +124,10 @@
     width: 100%;
     transition: background-color 0.3s;
 }
-
+.normal-button.clickable-url {
+	color: blue;
+	text-decoration: underline;
+}
 /* all that is above is for the menu*/
 
 /* endscreen annoying popup */

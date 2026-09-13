@@ -245,4 +245,42 @@ async function toggleButton(button) {
 		});
 	}
 	console.log("seterra-extension loaded");
+	
+	//update checker
+	document.getElementById("extension-version").textContent = chrome.runtime.getManifest().version;
+
+    let button =  document.getElementById("check-updates-button");
+	button.addEventListener("click", async () => {
+		//Check for updates
+		//const button = this;
+		button.textContent = 'Checking...';
+		
+		const current_version = chrome.runtime.getManifest().version;
+		
+		try {
+			const response = await fetch(
+				'https://api.github.com/repos/Afdusrt/seterra-qol-extension/releases/latest'
+			);
+			if (!response.ok) {
+				throw new Error('Fetching error');
+			}
+			const release = await response.json();
+			const latest_version = release.tag_name;
+			const download_url = release.assets[0].browser_download_url;
+			
+			if (current_version === latest_version) {
+				button.textContent = 'No updates';
+			} else {
+				button.textContent = 'Update found! Click to download.';
+				button.href = download_url;
+				button.classList.add("clickable-url");
+			}
+			
+		} catch {
+			console.error(error);
+			button.textContent = 'Update check failed';
+		}
+		
+		//button.textContent = 'Check for updates';
+	});
 })();

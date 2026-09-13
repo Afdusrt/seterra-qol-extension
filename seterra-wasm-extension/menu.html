@@ -26,16 +26,23 @@
 		<div class="column-title">Info</div>
 		<div id="category-Info">
 			<div style="color: white; background: #232728">
-				<p>Spacebar reset no longer works so i suggest you to rebind it to alt+r outside of seterra. ideally with instant release</p>
+				<p>Play with an adblocker like ublock origin to get less lag.</p>
+				<p>Spacebar reset no longer works so I suggest you to rebind Alt+R outside of seterra ideally with instant release too.</p>
 				<p>You may need to refresh the page to fix a messed up old header.</p>
 				<p>Esc -> gamemode selection menu</p>
 				<p>Home, Del -> open menu</p>
-				<p>...keybinds coming soon...</p>
-				<p>For old seterra features, just alt+r once.</p>
-				<p>Version: 0.8.0</p>
-				<button class="normal-button">(WIP) Check for updates</button>
+				<p>For old seterra features, just Alt+R once.</p>
+				<p>-feature keybinds soon-</p>
+				<p>Version: <span id="extension-version">checking...</span> </p>
+				<a class="normal-button" id="check-updates-button" href="#">Check for updates</a>
 			</div>
 		</div>
 	</div>
 	
 </div>
+<!--
+<script>
+	const manifest = chrome.runtime.getManifest();
+	document.getElementById("extension-version").textContent = manifest.version;
+</script>
+-->

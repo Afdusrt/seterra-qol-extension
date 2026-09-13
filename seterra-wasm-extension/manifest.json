@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Seterra QOL wasm extension",
     "description": "Works better in chrome. for firefox disable 'xpinstall.signatures.required' and 'extensions.langpacks.signatures.required' in about:config",
-    "version": "0.8.0",
+    "version": "0.8.1",
 	
 	"browser_specific_settings": {
 		"gecko": {
