@@ -1,0 +1,11 @@
+[package]
+name = "seterra-wasm"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+wasm-bindgen = "0.2.128"
+web-sys = { version = "0.3.105", features = ["Window", "Location", "Document", "History", "UrlSearchParams", "HtmlHeadElement", "Element", "HtmlCollection", "DomTokenList", "console"] }
+
+[lib]
+crate-type = ["cdylib", "rlib"]

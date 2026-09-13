@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Seterra QOL wasm extension",
+    "description": "Works better in chrome. for firefox disable 'xpinstall.signatures.required' and 'extensions.langpacks.signatures.required' in about:config",
+    "version": "0.8.0",
+	
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "seterra-qol@afdusrt"
+		}
+	},
+
+    "content_scripts": [
+        {
+            "matches": ["https://www.geoguessr.com/*", "https://www.seterra.com/*", "https://web.archive.org/*"],
+            "js": ["loader.js"],
+            "css": ["menu-styles.css"]
+        }
+    ],
+
+    "web_accessible_resources": [
+        {
+            "resources": [
+				"menu.html",
+				"pkg/*"
+				],
+            "matches": ["https://www.geoguessr.com/*", "https://www.seterra.com/*", "https://web.archive.org/*"]
+        }
+    ],
+    
+    "permissions": [
+		"storage"
+    ]
+}
