@@ -207,15 +207,18 @@ async function toggleButton(button) {
 		} else {
 			should_activate = button.category !== "Oldver";
 		}
-		
+
 		if (should_activate) {
 			element.addEventListener("click", async () => {
 				toggleButton(button);
 			});
-			
+
 			button.activate();
+		} else {
+			element.classList.add("disabled");
+			element.disabled = true;
 		}
-		
+
 		const category = document.getElementById(
 			"category-" + button.category
 		);
@@ -232,6 +235,7 @@ async function toggleButton(button) {
 		}
 	});
 	
+	
 	if (!is_old_ver) {
 		const gg_header = document.querySelector("[data-qa='game-map-header']");
 	
@@ -244,6 +248,7 @@ async function toggleButton(button) {
 			attributes: true
 		});
 	}
+	
 	console.log("seterra-extension loaded");
 	
 	//update checker

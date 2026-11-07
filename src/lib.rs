@@ -40,9 +40,9 @@ pub fn set_label(enabled: bool) {
         &document,
         "seterra-no-label-style",
         if enabled {
-            ".game-area_tooltip__Ns9Yi { display: flex !important; }"
+            ".game-area_tooltip__vgrWo { display: flex !important; }"
         } else {
-            ".game-area_tooltip__Ns9Yi { display: none !important; }"
+            ".game-area_tooltip__vgrWo { display: none !important; }"
         },
     )
 }
@@ -55,19 +55,19 @@ pub fn set_darkmode(enabled: bool) {
         &document,
         "seterra-dark-mode-style",
         if enabled {
-            ".seterra_content__nGh5_ { background: #181A1B !important; color: white !important; }
-			.seterra_main__mwfLw { background: #181A1B !important; color: white !important; }
+            ".seterra_content___f8FA { background: #181A1B !important; color: white !important; }
+			.seterra_main__aI7Q_ { background: #181A1B !important; color: white !important; }
 			.button_button__aR6_e { color: white !important; }
 			.highscore_table__oKrYg { color: white !important; background-color: #000000; }
-			.game-container_backgroundCard__k_11p { background: none !important; }
+			.game-container_backgroundCard__6CF_J { background: none !important; }
 			.score-modal_scoreModal__j5FYk { background: none !important; color: white !important; }
 			.button_button__HOmVR { color: white !important; }"
         } else {
-            ".seterra_content__nGh5_ { background: #ffffff !important; color: black !important; }
-            .seterra_main__mwfLw { background: #ffffff !important; color: black !important; }
+            ".seterra_content___f8FA { background: #ffffff !important; color: black !important; }
+            .seterra_main__aI7Q_ { background: #ffffff !important; color: black !important; }
 			.button_button__aR6_e { color: black !important; }
 			.highscore_table__oKrYg { color: black !important; background-color: #FFFFFF; }
-			.game-container_backgroundCard__k_11p { background: #FFFFFF; }
+			.game-container_backgroundCard__6CF_J { background: #FFFFFF; }
 			.score-modal_scoreModal__j5FYk { background: white !important; color: black !important; }
 			.button_button__HOmVR { color: black !important; }"
         },
@@ -82,9 +82,9 @@ pub fn set_center_game(enabled: bool) {
         &document,
         "seterra-sidebar-style",
         if enabled {
-            ".seterra_sidebar__p6xf1 { display: none !important; }"
+            ".seterra_sidebar__ifbDU { display: none !important; }"
         } else {
-            ".seterra_sidebar__p6xf1 { display: flex !important; }"
+            ".seterra_sidebar__ifbDU { display: flex !important; }"
         },
     )
 }
@@ -133,9 +133,9 @@ pub fn set_map_padding(enabled: bool) {
         &document,
         "seterra-mappadding-style",
         if enabled {
-            ".game-area_gameArea__G2ABs { margin-bottom: 500px !important; }"
+            ".game-area_mapWrapper__x_zWV { margin-bottom: 500px !important; }"
         } else {
-            ".game-area_gameArea__G2ABs { margin-bottom: 0px !important; }"
+            ".game-area_mapWrapper__x_zWV { margin-bottom: 0px !important; }"
         },
     )
 }
@@ -170,7 +170,7 @@ fn create_span(document: &web_sys::Document, parent: &web_sys::Element, id: &str
     let _ = parent.append_child(&span);
 }
 
-/*
+
 #[wasm_bindgen]
 pub fn create_old_header() {
     let document = web_sys::window().unwrap().document().unwrap();
@@ -209,7 +209,8 @@ pub fn create_old_header() {
         let second = header_location.children().item(0).unwrap();
         let _ = header_location.insert_before(&old_header, Some(&second) );
 }
-*/
+
+
 
 #[wasm_bindgen]
 pub fn set_old_header(enabled: bool) {
@@ -247,7 +248,7 @@ pub fn set_old_header(enabled: bool) {
         let _ = old_header.append_child(&flag_img);
 
         let header_location = document
-            .query_selector(".game-area_gameArea__G2ABs")
+            .query_selector(".game-area_mapWrapper__x_zWV")
             .unwrap()
             .unwrap();
         let second = header_location.children().item(0).unwrap();
@@ -262,10 +263,10 @@ pub fn set_old_header(enabled: bool) {
         &document,
         "seterra-header-style",
         if enabled {
-            ".game-header_root__EyjJc { display: none !important; }
+            ".game-header_root__Zdy_t { display: none !important; }
 			#old-header { display: block !important }"
         } else {
-            ".game-header_root__EyjJc { display: grid !important; }
+            ".game-header_root__Zdy_t { display: grid !important; }
 			#old-header { display: none !important }"
         },
     )
@@ -285,6 +286,7 @@ pub fn set_old_header(enabled: bool) {
         if (question)
             document.getElementById("old-current-question").textContent = " | Click on " + question;
 */
+
 #[wasm_bindgen]
 pub fn update_old_header() {
     let document = web_sys::window().unwrap().document().unwrap();
@@ -295,22 +297,22 @@ pub fn update_old_header() {
         .unwrap();
 
     let new_count = new_header
-        .query_selector(".game-header_left__Psq9Q label:nth-of-type(1)")
+        .query_selector(".game-header_left__wvpaH label:nth-of-type(1)")
         .unwrap()
         .unwrap();
     let new_score = new_header
-        .query_selector(".game-header_left__Psq9Q label:nth-of-type(2)")
+        .query_selector(".game-header_left__wvpaH label:nth-of-type(2)")
         .unwrap()
         .unwrap();
     let new_timer = new_header
-        .query_selector(".game-header_stopwatchTime__jJKdx h4")
+        .query_selector(".game-header_stopwatchTime___8nQX h4")
         .unwrap()
         .unwrap();
     let new_question = new_header
         .get_attribute("data-current-question-text")
         .unwrap();
     let new_flag = new_header
-        .query_selector(".game-header_topRightImage__N1wKi")
+        .query_selector(".game-header_topRightImage__e9c9q")
         .unwrap();
 
     let old_score = document.get_element_by_id("old-score").unwrap();

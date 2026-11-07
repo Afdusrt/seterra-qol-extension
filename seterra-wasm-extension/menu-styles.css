@@ -84,6 +84,11 @@
     background: linear-gradient(#7bcd3b,#399b43);
     transform: scale(1.05);
 }
+.toggle-button.disabled {
+    opacity: 0.35;
+    filter: grayscale(1);
+    cursor: not-allowed;
+}
 
 #old-header {
 	position: absolute;
